@@ -1,0 +1,17 @@
+
+CREATE TABLE users (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ username TEXT UNIQUE,
+ password_hash TEXT,
+ role TEXT,
+ rating INTEGER DEFAULT 0
+);
+
+CREATE TABLE matches (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ user_id INTEGER,
+ opponent TEXT,
+ result TEXT,
+ delta INTEGER,
+ created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

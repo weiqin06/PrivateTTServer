@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<nav>
+ <a href="/">首页</a> |
+ <a href="/match">录入比赛</a> |
+ <a href="/rank">积分榜</a> |
+ {% if not logged_in %}
+ <a href="/login">登录</a> |
+ <a href="/register">注册</a>
+ {% else %}
+ <a href="/logout">退出</a>
+ {% endif %}
+</nav>
+<hr>
+{% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h2>当前积分：{{rating}}</h2><h3>比赛记录</h3><ul>{% for m in matches %}<li>{{m[3]}} | {{m[0]}} | {{m[1]}} | {{m[2]}}</li>{% endfor %}</ul>{% endblock %}
