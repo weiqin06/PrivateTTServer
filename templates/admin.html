@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>管理员后台</h2>
+<h2>Admin Panel</h2>
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>用户名</th>
-            <th>角色</th>
-            <th>当前积分</th>
-            <th>快捷操作</th>
-            <th>危险操作</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Rating</th>
+            <th>Change Password</th>
+            <th>Dangerous</th>
         </tr>
     </thead>
     <tbody>
@@ -21,19 +21,20 @@
             <form action="/admin/update_user/{{ u.id }}" method="post">
                 <td>
                     <input type="number" name="rating" value="{{ u.rating }}" style="width: 70px;">
+                    <button type="submit" style="background-color: #f0ad4e; color: white; border: none; cursor: pointer;">Save</button>
                 </td>
                 <td>
-                    <input type="text" name="password" placeholder="留空不修改密码" style="width: 120px;">
-                    <button type="submit" style="background-color: #f0ad4e; color: white; border: none; cursor: pointer;">保存修改</button>
+                    <input type="text" name="password" placeholder="new password" style="width: 120px;">
+                    <button type="submit" style="background-color: #f0ad4e; color: white; border: none; cursor: pointer;">Save</button>
                 </td>
             </form>
             <td>
                 {% if u.id != session['user_id'] %}
-                <form action="/admin/delete_user/{{ u.id }}" method="post" onsubmit="return confirm('确定要删除该用户及其所有比赛记录吗？');" style="display:inline;">
-                    <button type="submit" style="background-color: #d9534f; color: white; border: none; cursor: pointer;">删除</button>
+                <form action="/admin/delete_user/{{ u.id }}" method="post" onsubmit="return confirm('Are you sure you want to delete this user and all record？');" style="display:inline;">
+                    <button type="submit" style="background-color: #d9534f; color: white; border: none; cursor: pointer;">Delete</button>
                 </form>
                 {% else %}
-                <span style="color: gray;">(当前账号)</span>
+                <span style="color: gray;">(current)</span>
                 {% endif %}
             </td>
         </tr>

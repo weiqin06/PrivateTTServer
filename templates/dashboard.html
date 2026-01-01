@@ -1,17 +1,17 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<h2>当前积分：<span style="color: #007bff;">{{rating}}</span></h2>
-<h3>近期比赛记录</h3>
+<h2>Current Rating：<span style="color: #007bff;">{{rating}}</span></h2>
+<h3>Current Match Record</h3>
 {% if matches %}
 <table>
     <thead>
         <tr>
-            <th>日期</th>
-            <th>对手</th>
-            <th>结果</th>
-            <th>比分</th>
-            <th>积分变动</th>
+            <th>Date</th>
+            <th>Opponent</th>
+            <th>Result</th>
+            <th>Score</th>
+            <th>Rating change</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
             <td>{{m.created_at[:16]}}</td>
             <td>{{m.opponent}}</td>
             <td style="color: {{ 'green' if m.result == 'win' else 'red' }} font-weight: bold;">
-                {{ '胜利' if m.result == 'win' else '失败' }}
+                {{ 'Win' if m.result == 'win' else 'Lose' }}
             </td>
             <td>{{m.score}}</td>
             <td>{{ '+' if m.delta > 0 else '' }}{{m.delta}}</td>
@@ -29,6 +29,6 @@
     </tbody>
 </table>
 {% else %}
-<p>暂无比赛记录。</p>
+<p>No match record...</p>
 {% endif %}
 {% endblock %}

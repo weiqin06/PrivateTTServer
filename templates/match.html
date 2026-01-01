@@ -1,27 +1,27 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<h2>录入比赛结果</h2>
+<h2>Record Game Results</h2>
 <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
     <form method="post">
         <div style="margin-bottom: 15px;">
-            <label><strong>对手:</strong></label><br>
+            <label><strong>Opponent:</strong></label><br>
             <select name="opponent_id" required style="width: 200px;">
-                <option value="">-- 选择对手 --</option>
+                <option value="">-- Select Opponent --</option>
                 {% for op in opponents %}
-                <option value="{{ op.id }}">{{ op.username }} (目前积分: {{ op.rating }})</option>
+                <option value="{{ op.id }}">{{ op.username }} (Rating: {{ op.rating }})</option>
                 {% endfor %}
             </select>
         </div>
         
         <div style="margin-bottom: 15px;">
-            <label><strong>比分 (我 : 对手):</strong></label><br>
-            <input type="number" name="my_score" placeholder="我方" min="0" required style="width: 60px;">
+            <label><strong>Score (Me : Opponent):</strong></label><br>
+            <input type="number" name="my_score" placeholder="Me" min="0" required style="width: 60px;">
             :
-            <input type="number" name="op_score" placeholder="对方" min="0" required style="width: 60px;">
+            <input type="number" name="op_score" placeholder="Op" min="0" required style="width: 60px;">
         </div>
 
-        <button type="submit" style="background: #4CAF50; color: white; border: none; cursor: pointer;">提交比赛</button>
+        <button type="submit" style="background: #4CAF50; color: white; border: none; cursor: pointer;">Submit</button>
     </form>
 </div>
 {% endblock %}

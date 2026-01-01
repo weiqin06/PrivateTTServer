@@ -1,2 +1,2 @@
 
-{% extends 'base.html' %}{% block content %}<h2>🏆 积分排行榜</h2><ol>{% for u in users %}<li><strong>{{u['username']}}</strong> - {{u['rating']}} 分</li>{% endfor %}</ol>{% endblock %}
+{% extends 'base.html' %}{% block content %}<h2>🏆 Ranking</h2><ol>{% for u in users %}<li><strong>{{u['username']}}</strong> - {{u['rating']}}</li>{% endfor %}</ol>{% endblock %}
