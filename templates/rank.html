@@ -1,1 +1,2 @@
-{% extends 'base.html' %}{% block content %}<h2>积分榜</h2><ol>{% for u in users %}<li>{{u[0]}} - {{u[1]}}</li>{% endfor %}</ol>{% endblock %}
+
+{% extends 'base.html' %}{% block content %}<h2>🏆 积分排行榜</h2><ol>{% for u in users %}<li><strong>{{u['username']}}</strong> - {{u['rating']}} 分</li>{% endfor %}</ol>{% endblock %}

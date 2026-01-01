@@ -1,1 +1,27 @@
-{% extends 'base.html' %}{% block content %}<h2>录入比赛</h2><form method=post><input name=opponent placeholder=对手><select name=result><option value=win>胜</option><option value=lose>负</option></select><button>提交</button></form>{% endblock %}
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>录入比赛结果</h2>
+<div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
+    <form method="post">
+        <div style="margin-bottom: 15px;">
+            <label><strong>对手:</strong></label><br>
+            <select name="opponent_id" required style="width: 200px;">
+                <option value="">-- 选择对手 --</option>
+                {% for op in opponents %}
+                <option value="{{ op.id }}">{{ op.username }} (目前积分: {{ op.rating }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label><strong>比分 (我 : 对手):</strong></label><br>
+            <input type="number" name="my_score" placeholder="我方" min="0" required style="width: 60px;">
+            :
+            <input type="number" name="op_score" placeholder="对方" min="0" required style="width: 60px;">
+        </div>
+
+        <button type="submit" style="background: #4CAF50; color: white; border: none; cursor: pointer;">提交比赛</button>
+    </form>
+</div>
+{% endblock %}

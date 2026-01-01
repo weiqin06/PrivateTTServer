@@ -1,11 +1,28 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PingPong Server</title>
+<style>
+    body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+    nav a { text-decoration: none; margin: 0 5px; color: #333; }
+    nav a:hover { text-decoration: underline; color: blue; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    input, select, button { padding: 8px; margin: 5px 0; }
+</style>
+</head>
 <body>
 <nav>
  <a href="/">首页</a> |
  <a href="/match">录入比赛</a> |
  <a href="/rank">积分榜</a> |
+ {% if is_admin %}
+ <a href="/admin" style="color: #d9534f; font-weight: bold;">后台管理</a> |
+ {% endif %}
  {% if not logged_in %}
  <a href="/login">登录</a> |
  <a href="/register">注册</a>
